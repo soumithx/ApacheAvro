@@ -1,0 +1,39 @@
+Dara Defination = Schema -> JSON
+ Data = binary
+
+Avro files includes markers that can be used to spliting large datasets into subset(hdfs ) blocks which make it suitable for mapreduce processing.
+
+_________________________________Schema Evalution____________________________
+Schema can change over time.
+
+1.Schema Can changed which is already created.
+2.Remove the Schema
+ ___________
+|Json Schema|
+|___________|   <----- This can change over time
+|01010101010|
+|01010010100|   <----- Data may not change
+|___________|
+
+for example,in a table,i want to delete manager id,data is also lost
+            but in avro,if i delte manager id schema,stil data is preserved.
+-->even if u changed schema,old schema also should be able read the data.
+_______________________________________________________________________________
+Avro is row based storage format.
+
+Apache avro is a framework that allows you to serialize data in a format that has
+schema build in,
+
+It Serialze data in a compact binary format that does not require proxy objects.
+
+Instead of using generated proxy libraries and strong typing,avro relies heavily on
+the schema that are sent along with the serialize data.
+
+Including schEMA with the avro message allows any application to deserialize the data.
+
+Avro Schema describe the format of the message and are defined using Javascript Object NOtation.
+
+
+________________________________________________________________________________
+
+
